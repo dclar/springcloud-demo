@@ -7,15 +7,35 @@ spring:
     stream:
       kafka:
         binder:
+          # broker（kafka）的运行地址
           brokers: localhost
+          # 默认的端口号
+          defaultBrokerPort: 9092
+          # 参看partitionCount的设置。如果broker中的分区数不够，则会自动按照partitionCount的数量对broker进行再次分区以达到分区要求数量
+          autoAddPartitions: true
       bindings:
         producerOutput:
+          # binder（即kafka中的topic）
           destination: test
-        producer:
-          headerMode: headers
-          partitionCount: 3
+          producer:
+            # 原来的raw已经deprecated了，取而代之的是none headers embeddedHeaders
+            headerMode: headers
+            # 分区的数量
+            # [注意]
+            # 分区数量 < kafka topic partition ：不会出现问题
+            # 分区数量 > kafka topic partition ：会出现错误，给出解决策略1.减少分区数 2.添加自动增加分区策略，即设置`autoAddPartitions=true`
+            # 如，在kafka的topic中设置'test'的分区为3，启动时会报以下问题
+            # org.springframework.cloud.stream.provisioning.ProvisioningException:
+            # provisioning exception; nested exception is org.springframework.cloud.stream.provisioning.ProvisioningException:
+            # The number of expected partitions was: 5, but 3 have been found instead.
+            # Consider either increasing the partition count of the topic or enabling `autoAddPartitions`
+            partitionCount: 5
+            # 选取partition key的算法策略
+            partitionKeyExtractorClass: org.dclar.cloud.stream.kafka.producer.rest.partitioned.partition.CustomPartitionKeyExtractorStrategy
+            # key对应与partition分区的策略
+            partitionSelectorClass: org.dclar.cloud.stream.kafka.producer.rest.partitioned.partition.CustomPartitionSelectorStrategy
 
-
+# spring boot 2.0后，对于endpoints进行了security的保护，需要在此处进行exposure
 management:
   endpoints:
     web:

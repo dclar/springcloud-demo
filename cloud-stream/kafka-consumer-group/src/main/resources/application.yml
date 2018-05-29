@@ -1,0 +1,26 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: kafka-consumer-group
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+      bindings:
+        consumerInput:
+          # 分组相同的consumer会组团消费producer的message
+          # 如，在test的topic中有5个分区，如果启动5个不同的consumer实例则会分别对应5个分区进行消费
+          # 在producer侧可以进行key与partition的定义，使得不同类型的message可以进入到不同的分区
+          group: log-console
+          destination: test
+
+
+# 需要暴露binding的endpoint才可以查看 SpringBoot2.0新特性
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings

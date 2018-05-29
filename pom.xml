@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>stream-cloud</module>
+        <module>cloud-stream</module>
         <module>cloud-eureka</module>
     </modules>
 

@@ -15,6 +15,7 @@
         <module>kafka-producer-rest</module>
         <module>kafka-consumer</module>
         <module>kafka-producer-rest-partitioned</module>
+        <module>kafka-consumer-group</module>
     </modules>
 
 </project>
