@@ -18,13 +18,13 @@ Spring Cloud的研究过程中的代码记录
 - 利用RESTful接口发送message，通过spring cloud stream 的binding联通到kafka的topic
 
 
-### 1.1.2 kafka-producer-rest-partitioned
+#### 1.1.2 kafka-producer-rest-partitioned
 
 - message发送方式同`kafka-producer-rest`，在`application.yml`配置中实现binding的分区
 
 ### 1.2 consumer
 
-#### 1.1.1 kafka-consumer
+#### 1.2.1 kafka-consumer
 
 - 通过@StreamListener 接收binding的channel中的数据并进行log打印
 
