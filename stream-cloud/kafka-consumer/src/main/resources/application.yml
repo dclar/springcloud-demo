@@ -1,0 +1,15 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: kafka-consumer
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+      bindings:
+        consumerInput:
+          destination: test
+
+

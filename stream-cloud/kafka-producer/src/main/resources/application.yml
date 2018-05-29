@@ -1,0 +1,15 @@
+# producer: 8091
+# consumer: 8092 8093 8094
+server:
+  port: 8091
+spring:
+  application:
+    name: kafka-producer
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+      bindings:
+        producerOutput:
+          destination: test
