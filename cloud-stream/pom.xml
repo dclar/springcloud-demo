@@ -12,8 +12,9 @@
     <artifactId>stream-cloud</artifactId>
 
     <modules>
-        <module>kafka-producer</module>
+        <module>kafka-producer-rest</module>
         <module>kafka-consumer</module>
+        <module>kafka-producer-rest-partitioned</module>
     </modules>
 
 </project>

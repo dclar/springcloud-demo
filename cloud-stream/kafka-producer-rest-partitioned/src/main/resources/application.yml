@@ -1,0 +1,23 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: kafka-producer-rest-partitioned
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+      bindings:
+        producerOutput:
+          destination: test
+        producer:
+          headerMode: headers
+          partitionCount: 3
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings
