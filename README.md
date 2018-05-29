@@ -22,10 +22,16 @@ Spring Cloud的研究过程中的代码记录
 
 - message发送方式同`kafka-producer-rest`，在`application.yml`配置中实现binding的分区
 
+- 定义key与partition的对应关系通过策略使得不同的key的message进入到不同的分区
+
 ### consumer
 
 #### ① kafka-consumer
 
 - 通过@StreamListener 接收binding的channel中的数据并进行log打印
 
+
+#### ② kafka-consumer-group
+
+- 对consumer进行分组，同组的consumer共同消费producer的数据（消费不同分区）
 
