@@ -1,4 +1,4 @@
-package org.dclar.cloud.stream.kafka.producer.rest.partitioned.entity;
+package org.dclar.cloud.stream.kafka.producer.rest.entity;
 
 /**
  * Description:

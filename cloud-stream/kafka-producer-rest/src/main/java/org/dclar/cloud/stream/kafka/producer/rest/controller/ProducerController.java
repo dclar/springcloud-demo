@@ -1,7 +1,7 @@
-package org.dclar.cloud.stream.kafka.producer.rest.partitioned.controller;
+package org.dclar.cloud.stream.kafka.producer.rest.controller;
 
 import lombok.extern.java.Log;
-import org.dclar.cloud.stream.kafka.producer.rest.partitioned.entity.User;
+import org.dclar.cloud.stream.kafka.producer.rest.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.MessageChannel;

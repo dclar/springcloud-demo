@@ -1,4 +1,4 @@
-package org.dclar.cloud.stream.kafka.producer.rest.partitioned.channel;
+package org.dclar.cloud.stream.kafka.producer.rest.channel;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
